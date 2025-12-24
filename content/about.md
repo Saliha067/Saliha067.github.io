@@ -2,7 +2,7 @@
 title: "About"
 url: "/about/"
 layout: "about"
-# description: "About your blog and yourself."
+# description: "About spf-in-action and her blog."
 ShowReadingTime: false
 ShowShareButtons: false
 ShowPostNavLinks: false
@@ -19,24 +19,49 @@ hideSummary: true
 showtoc: false
 ---
 
-## About This Blog
+## About
 
-Welcome to my personal blog! Here, I share my experiences, insights, and knowledge in technology, software development, and various topics that interest me. Explore my articles to discover new ideas and perspectives.
+Platform Engineering Manager in Tokyo building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
 
-## About Me
+## What I Do
 
-Write about yourself here. Share your background, interests, and what drives you to write.
+**Leading at Scale** 🚀  
+Managing the Streaming Platform team with infrastructure spanning AWS and GCP, serving 60M+ active users. Driving cost optimization initiatives while maintaining high availability and performance standards.
 
-You can include:
-- Your professional experience
-- Your hobbies and interests  
-- What readers can expect from your blog
-- Your goals and aspirations
+**Building Teams** 👥  
+Leading distributed engineering teams across two time zones. Focused on talent development, technical mentorship and fostering collaboration across product, security and architecture organizations.
 
-## Contact
+**Technical Leadership** ⚙️  
+Architecting cloud-native solutions using Kubernetes, Terraform and GitOps practices. Implementing robust observability, CI/CD pipelines and incident response frameworks for production systems.
 
-Feel free to reach out to me through the following channels:
+### Certifications 🏆
 
-- **Email:** your-email[at]example.com
-- **LinkedIn:** [Your Name](https://linkedin.com/in/yourprofile/)
-- **GitHub:** [Your GitHub](https://github.com/yourusername)
+- ☁️ **AWS Certified Solutions Architect – Associate**
+- ☸️ **Certified Kubernetes Administrator (CKA)**
+- 🎯 **Certified Kubernetes Application Developer (CKAD)**
+- 🏗️ **HashiCorp Terraform Certified**
+
+### Core Technologies & Skills 💻
+
+**Cloud & Infrastructure**  
+AWS, GCP, Kubernetes (KOPS, EKS), Terraform, Docker, ArgoCD
+
+**Observability & Ops**  
+Prometheus, Grafana, New Relic, Datadog, GitOps, CI/CD
+
+**Streaming & Data**  
+Kafka, OpenSearch, logstash and real-time data pipelines
+
+**Automation & Security**  
+Ansible, IaC and security best practices
+
+## Let's Connect 🤝
+
+Interested in platform engineering, cloud architecture, or building systems at scale?
+
+- **LinkedIn:** [linkedin.com/in/spf-in-action1](https://www.linkedin.com/in/spf-in-action1/)
+- **GitHub:** [github.com/spf-in-action067](https://github.com/spf-in-action067)
+
+---
+
+*Building reliable infrastructure, one deployment at a time.* 🚀

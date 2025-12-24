@@ -2,9 +2,9 @@
 # ===== CUSTOMIZE: Your Personal Info =====
 # ========================================
 # Update these values with your own information
-baseURL: https://saliha067.github.io/  # Your GitHub Pages URL
+baseURL: https://spf-in-action067.github.io/  # Your GitHub Pages URL
 languageCode: en-us
-title: Saliha's Blog  # Your blog title
+title: spf-in-action  # Your blog title
 theme: 'PaperMod'
 pagination.pagerSize: 10
 
@@ -35,10 +35,10 @@ related:
 # ===== CUSTOMIZE: Site Parameters =====
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: Your Name  # Your name or blog title
-  description: "Your blog description"  # Brief description of your blog
-  keywords: [Blog, Portfolio, Tech]  # Keywords for SEO
-  author: Your Name  # Your name
+  title: spf-in-action  # Your name or blog title
+  description: "Platform Engineering Manager & AI Practitioner in Tokyo | Building intelligent, scalable systems"  
+  keywords: [Kubernetes, Kafka, OpenSearch, Terraform, AWS, Docker, Ansible, DevOps, Platform Engineering, AI, Cloud Native, Automation]  # Keywords for SEO
+  author: spf-in-action  # Your name
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   defaultTheme: auto # dark, light
@@ -74,7 +74,7 @@ params:
 
   # ===== CUSTOMIZE: Site Label =====
   label:
-    text: "Your Name"  # Text shown in header
+    text: "spf-in-action"  # Text shown in header
     # icon: /images/apple-touch-icon.png
     # iconHeight: 24
 
@@ -82,9 +82,9 @@ params:
   # Enable this if you want a profile-style homepage instead of blog list
   profileMode:
     enabled: false # Set to true to enable profile mode
-    title: Your Name  # Your name
+    title: spf-in-action  # Your name
     subtitle: >
-      Your bio goes here. Write a few sentences about yourself, your interests, and what you write about.
+      Platform Engineering Manager in Tokyo building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
     imageUrl: "/images/profile.jpg"  # Add your profile image to static/images/
     imageWidth: 120
     imageHeight: 120
@@ -97,19 +97,21 @@ params:
 
   # ===== CUSTOMIZE: Home Page Info =====
   homeInfoParams:
-    Title: "Hey there \U0001F44B"  # Greeting on homepage
+    Title: "Hey there 👋 Welcome!"  # Greeting on homepage
     Content: |
-      Welcome to my blog! Write your introduction here.
+      Platform Engineering Manager in Tokyo building and scaling cloud infrastructure for 60M+ active users.
       &#13;&#10;
-      Share what you write about and what readers can expect from your blog.
+      Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
+      &#13;&#10;
+      AWS Solutions Architect | CKA | CKAD | Terraform Certified
   
   # ===== CUSTOMIZE: Social Media Links =====
   # Remove or add social icons as needed
   socialIcons:
     - name: github
-      url: "https://github.com/Saliha067"  # Your GitHub profile
+      url: "https://github.com/spf-in-action067"  # Your GitHub profile
     - name: linkedin
-      url: "https://linkedin.com/in/yourprofile/"  # Your LinkedIn profile
+      url: "https://www.linkedin.com/in/spf-in-action1/"  # Your LinkedIn profile
     # - name: medium
     #   url: "https://yourmedium.medium.com/"  # Your Medium profile (optional)
     # - name: twitter
@@ -132,7 +134,7 @@ params:
 
   # ===== CUSTOMIZE: Edit Post Link =====
   editPost:
-    URL: "https://github.com/Saliha067/Saliha067.github.io/blob/main/content"  # Your repo URL
+    URL: "https://github.com/spf-in-action067/spf-in-action067.github.io/blob/master/content"  # Your repo URL
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
