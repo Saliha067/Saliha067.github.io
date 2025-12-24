@@ -2,7 +2,7 @@
 title: "About"
 url: "/about/"
 layout: "about"
-# description: "About spf-in-action and her blog."
+# description: ""
 ShowReadingTime: false
 ShowShareButtons: false
 ShowPostNavLinks: false
@@ -59,9 +59,9 @@ Ansible, IaC and security best practices
 
 Interested in platform engineering, cloud architecture, or building systems at scale?
 
-- **LinkedIn:** [linkedin.com/in/spf-in-action1](https://www.linkedin.com/in/spf-in-action1/)
-- **GitHub:** [github.com/spf-in-action067](https://github.com/spf-in-action067)
+<!-- - **LinkedIn:** [linkedin.com/in/spf-in-action1](https://www.linkedin.com/in/spf-in-action1/) -->
+- **GitHub:** [github.com/Saliha067](https://github.com/Saliha067)
 
 ---
 
-*Building reliable infrastructure, one deployment at a time.* 🚀
+*Building reliable infrastructure for the future of streaming.* 🚀

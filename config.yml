@@ -2,7 +2,7 @@
 # ===== CUSTOMIZE: Your Personal Info =====
 # ========================================
 # Update these values with your own information
-baseURL: https://spf-in-action067.github.io/  # Your GitHub Pages URL
+baseURL: https://Saliha067.github.io/  # Your GitHub Pages URL
 languageCode: en-us
 title: spf-in-action  # Your blog title
 theme: 'PaperMod'
@@ -38,9 +38,9 @@ params:
   title: spf-in-action  # Your name or blog title
   description: "Platform Engineering Manager & AI Practitioner | Building intelligent, scalable systems"  
   keywords: [Kubernetes, Kafka, OpenSearch, Terraform, AWS, Docker, Ansible, DevOps, Platform Engineering, AI, Cloud Native, Automation]  # Keywords for SEO
-  author: spf-in-action  # Your name
+  author: Saliha  # Your name
   # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  images: ["/images/profile.jpg"]  # Default image for social sharing
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
@@ -109,9 +109,9 @@ params:
   # Remove or add social icons as needed
   socialIcons:
     - name: github
-      url: "https://github.com/spf-in-action067"  # Your GitHub profile
-    - name: linkedin
-      url: "https://www.linkedin.com/in/spf-in-action1/"  # Your LinkedIn profile
+      url: "https://github.com/Saliha067"  # Your GitHub profile
+    # - name: linkedin
+      # url: "https://www.linkedin.com/in/spf-in-action1/"  # Your LinkedIn profile
     # - name: medium
     #   url: "https://yourmedium.medium.com/"  # Your Medium profile (optional)
     # - name: twitter
@@ -134,7 +134,7 @@ params:
 
   # ===== CUSTOMIZE: Edit Post Link =====
   editPost:
-    URL: "https://github.com/spf-in-action067/spf-in-action067.github.io/blob/master/content"  # Your repo URL
+    URL: "https://github.com/Saliha067/Saliha067.github.io/blob/master/content"  # Your repo URL
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
