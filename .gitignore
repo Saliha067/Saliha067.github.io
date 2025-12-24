@@ -1,8 +1,25 @@
+# Editor and OS files
 .vscode/*
 .DS_Store
+*.swp
+*.swo
+*~
+
+# Hugo build output
 public/*
-.github/myenv/*
+resources/_gen/
+.hugo_build.lock
 
+# Environment files
 *.env
+.env.local
 
+# Project specific
+.github/myenv/*
 hbt
+
+# Node modules (if using npm)
+node_modules/
+
+# Logs
+*.log
