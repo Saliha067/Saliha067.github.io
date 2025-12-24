@@ -4,7 +4,7 @@
 # Update these values with your own information
 baseURL: https://saliha067.github.io/  # Your GitHub Pages URL
 languageCode: en-us
-title: Your Name  # Your blog title
+title: Saliha's Blog  # Your blog title
 theme: 'PaperMod'
 pagination.pagerSize: 10
 
