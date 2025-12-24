@@ -5,7 +5,7 @@ draft: false
 ShowToc: true
 TocOpen: false
 summary: "An introduction to my first blog post"
-tags: ["introduction", "platform engineering", "cloud"]
+tags: ["introduction", "First Post"]
 categories: ["blog"]
 cover:
   image: "/images/profile.jpg"
@@ -17,8 +17,8 @@ cover:
 
 ## Hello World! 👋
 
-Welcome to spf-in-action ( Streaming Platform in Action ) blog! I'm Saliha, a Platform Engineering Manager and I'm excited to share my journey in building and maintaining core infrastructure that supports over 60 million active users.
+Welcome to Streaming Platform in Action blog! I'm Saliha, a Platform Engineering Manager and I'm excited to share my journey in building and maintaining core infrastructure that supports over 60 million active users.
 
-In this blog, you'll find cloud and insights, tutorials and best practices.
+In this blog, you'll find cloud infrastructure insights, tutorials and best practices.
 
 *More posts coming soon...* 🚀
