@@ -10,7 +10,7 @@ categories: ["blog"]
 cover:
   image: "/images/profile.jpg"
   alt: "Platform"
-  caption: "Building scalable infrastructure in the cloud"
+  caption: ""
   relative: false
   responsiveImages: true
 ---
