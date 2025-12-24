@@ -36,7 +36,7 @@ related:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: spf-in-action  # Your name or blog title
-  description: "Platform Engineering Manager & AI Practitioner in Tokyo | Building intelligent, scalable systems"  
+  description: "Platform Engineering Manager & AI Practitioner | Building intelligent, scalable systems"  
   keywords: [Kubernetes, Kafka, OpenSearch, Terraform, AWS, Docker, Ansible, DevOps, Platform Engineering, AI, Cloud Native, Automation]  # Keywords for SEO
   author: spf-in-action  # Your name
   # author: ["Me", "You"] # multiple authors
@@ -84,7 +84,7 @@ params:
     enabled: false # Set to true to enable profile mode
     title: spf-in-action  # Your name
     subtitle: >
-      Platform Engineering Manager in Tokyo building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
+      Platform Engineering Manager in building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
     imageUrl: "/images/profile.jpg"  # Add your profile image to static/images/
     imageWidth: 120
     imageHeight: 120
@@ -99,7 +99,7 @@ params:
   homeInfoParams:
     Title: "Hey there 👋 Welcome!"  # Greeting on homepage
     Content: |
-      Platform Engineering Manager in Tokyo building and scaling cloud infrastructure for 60M+ active users.
+      Platform Engineering Manager in building and scaling cloud infrastructure for 60M+ active users.
       &#13;&#10;
       Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
       &#13;&#10;

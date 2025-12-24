@@ -17,7 +17,7 @@ cover:
 
 ## Hello World! 👋
 
-Welcome to my spf-in-action ( Streaming Platform in Action ) blog! I'm Saliha, a Platform Engineering Manager and I'm excited to share my journey in building and maintaining core infrastructure that supports over 60 million active users.
+Welcome to spf-in-action ( Streaming Platform in Action ) blog! I'm Saliha, a Platform Engineering Manager and I'm excited to share my journey in building and maintaining core infrastructure that supports over 60 million active users.
 
 In this blog, you'll find cloud and insights, tutorials and best practices.
 
