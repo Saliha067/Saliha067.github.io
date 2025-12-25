@@ -85,7 +85,7 @@ params:
     enabled: false # Set to true to enable profile mode
     title: spf-in-action  # Your name
     subtitle: >
-      Platform Engineering Manager building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
+      I build stuff that scales. Here's how, why, and what went wrong along the way.
     imageUrl: "/images/profile.jpg"  # Add your profile image to static/images/
     imageWidth: 120
     imageHeight: 120
@@ -100,10 +100,9 @@ params:
   homeInfoParams:
     Title: "Hey there 👋 Welcome!"  # Greeting on homepage
     Content: |
-      Platform Engineering Manager building and scaling cloud infrastructure for 60M+ active users.
-      &#13;&#10;
-      Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
-  
+      I build stuff that scales. Here's how, why, and what went wrong along the way.
+      Feel free to explore my posts, projects, and get in touch!
+      
   # ===== CUSTOMIZE: Social Media Links =====
   # Remove or add social icons as needed
   # socialIcons:
