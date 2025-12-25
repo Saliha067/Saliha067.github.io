@@ -1,6 +1,6 @@
 ---
 title: "Zero-Downtime Kafka Upgrade: From 3.7.0 to 3.9.0 with Docker"
-date: 2025-12-24T10:00:00+05:30
+date: 2025-12-24T22:30:00+09:00
 draft: false
 mermaid: true
 ShowToc: true
@@ -128,176 +128,48 @@ For these brokers to communicate with each other, they need a **common protocol*
 
 ### Docker Compose Setup
 
-The initial cluster is launched using Docker Compose, which defines all 6 containers (3 ZooKeeper + 3 Kafka):
+The initial cluster is launched using Docker Compose, which defines all 6 containers (3 ZooKeeper + 3 Kafka).
 
-**docker-compose.yml:**
-```yaml
-# Kafka 3.7.0 to 3.9.0 Upgrade Lab
-# Initial cluster setup with Kafka 3.7.0
+**Key architecture points:**
+- 3 ZooKeeper nodes with persistent volumes for data and logs
+- 3 Kafka brokers (3.7.0 initially) with persistent data volumes
+- Custom network `kafka-370.local` with hostname resolution
+- Environment variables for broker ID, listeners, and ZooKeeper connection
 
-services:
-  # ZooKeeper Cluster (3 nodes)
-  zk1:
-    image: kafka-370-zk:latest
-    hostname: zk1.local
-    container_name: zk1
-    privileged: true
-    tty: true
-    volumes:
-      - ./volumes/zk1-data:/zookeeper/data
-      - ./volumes/zk1-logs:/zookeeper/logs
-    environment:
-      ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zk1.local:2888:3888 server.2=zk2.local:2888:3888 server.3=zk3.local:2888:3888
+**📦 Get the complete docker-compose.yml:** Available in the lab repository at the end of this post.
 
-  zk2:
-    image: kafka-370-zk:latest
-    hostname: zk2.local
-    container_name: zk2
-    privileged: true
-    tty: true
-    volumes:
-      - ./volumes/zk2-data:/zookeeper/data
-      - ./volumes/zk2-logs:/zookeeper/logs
-    environment:
-      ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zk1.local:2888:3888 server.2=zk2.local:2888:3888 server.3=zk3.local:2888:3888
-
-  zk3:
-    image: kafka-370-zk:latest
-    hostname: zk3.local
-    container_name: zk3
-    privileged: true
-    tty: true
-    volumes:
-      - ./volumes/zk3-data:/zookeeper/data
-      - ./volumes/zk3-logs:/zookeeper/logs
-    environment:
-      ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zk1.local:2888:3888 server.2=zk2.local:2888:3888 server.3=zk3.local:2888:3888
-
-  # Kafka Brokers (3 nodes) - Starting with 3.7.0
-  kafka1:
-    image: kafka-370-broker:latest
-    hostname: kafka1.local
-    container_name: kafka1
-    privileged: true
-    tty: true
-    volumes:
-      - ./volumes/kafka1-data:/kafka/logs
-    depends_on:
-      - zk1
-      - zk2
-      - zk3
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_LISTENERS: PLAINTEXT://kafka1.local:9092
-      KAFKA_ZOOKEEPER_CONNECT: zk1.local:2181,zk2.local:2181,zk3.local:2181
-
-  kafka2:
-    image: kafka-370-broker:latest
-    hostname: kafka2.local
-    container_name: kafka2
-    privileged: true
-    tty: true
-    volumes:
-      - ./volumes/kafka2-data:/kafka/logs
-    depends_on:
-      - zk1
-      - zk2
-      - zk3
-    environment:
-      KAFKA_BROKER_ID: 2
-      KAFKA_LISTENERS: PLAINTEXT://kafka2.local:9092
-      KAFKA_ZOOKEEPER_CONNECT: zk1.local:2181,zk2.local:2181,zk3.local:2181
-
-  kafka3:
-    image: kafka-370-broker:latest
-    hostname: kafka3.local
-    container_name: kafka3
-    privileged: true
-    tty: true
-    volumes:
-      - ./volumes/kafka3-data:/kafka/logs
-    depends_on:
-      - zk1
-      - zk2
-      - zk3
-    environment:
-      KAFKA_BROKER_ID: 3
-      KAFKA_LISTENERS: PLAINTEXT://kafka3.local:9092
-      KAFKA_ZOOKEEPER_CONNECT: zk1.local:2181,zk2.local:2181,zk3.local:2181
-
-networks:
-  default:
-    name: kafka-370.local
-```
-
-**To start the initial cluster:**
+**To start the cluster:**
 ```bash
 docker-compose up -d
 ```
 
-This creates all 6 containers but doesn't start the services yet. We'll initialize them step-by-step in the upgrade process.
-
 ### Dockerfile Structure
 
-We use separate base images for clean version isolation:
+We use separate Docker images for each Kafka version:
 
-**Dockerfile.kafka-370:**
-```dockerfile
-FROM kafka-370-base:latest
+- **kafka-370-broker:** Based on Kafka 3.7.0 binaries with systemd support
+- **kafka-390-broker:** Based on Kafka 3.9.0 binaries (protocol configurable)
 
-COPY config/server-370.properties /opt/kafka/config/server.properties
-COPY config/kafka.service /etc/systemd/system/kafka.service
-COPY config/java.env /opt/kafka/config/java.env
-COPY config/kafka_config_generator.sh /var/tmp/kafka_config_generator.sh
-RUN chmod +x /var/tmp/kafka_config_generator.sh
+Each image includes:
+- Kafka binaries at `/opt/kafka`
+- Configuration generator script for dynamic broker setup
+- Systemd service definition for process management
+- Pre-configured server.properties with upgrade-safe defaults
 
-RUN mkdir -p /kafka/logs
-
-CMD ["/sbin/init"]
-```
-
-**Dockerfile.kafka-390:**
-```dockerfile
-FROM kafka-390-base:latest
-
-# use 3.9.0 binary with protocol version 3.7 (for upgrade compatibility)
-COPY config/server-390.properties /opt/kafka/config/server.properties
-COPY config/kafka.service /etc/systemd/system/kafka.service
-COPY config/java.env /opt/kafka/config/java.env
-COPY config/kafka_config_generator.sh /var/tmp/kafka_config_generator.sh
-RUN chmod +x /var/tmp/kafka_config_generator.sh
-
-RUN mkdir -p /kafka/logs
-
-CMD ["/sbin/init"]
-```
+**📦 Get Dockerfiles and build scripts:** Available in the lab repository.
 
 ### Configuration Files
 
-**server-370.properties (Kafka 3.7.0 Initial Config):**
-```properties
-# Kafka 3.7.0 Server Configuration
+The server.properties files contain critical settings for the upgrade:
 
-Listeners=PLAINTEXT://localhost:9092
-log.dirs=/kafka/logs
-broker.id=0
+**Key configuration points:**
+- `inter.broker.protocol.version=3.7` - Protocol compatibility during upgrade
+- `min.insync.replicas=2` - Ensures durability (2 of 3 replicas must acknowledge)
+- `auto.leader.rebalance.enable=false` - Prevents automatic rebalancing during upgrade
+- `unclean.leader.election.enable=false` - Prevents data loss
+- `default.replication.factor=3` - All topics replicated across all brokers
 
-# Replication settings
-min.insync.replicas=2
-default.replication.factor=3
-
-# ZooKeeper connection
-zookeeper.connect=localhost:2181
-zookeeper.session.timeout.ms=30000
-
-# Protocol version (IMPORTANT for upgrade)
-inter.broker.protocol.version=3.7
-
-# Message settings
-message.max.bytes=500000
+**📦 Get complete configuration files:** server-370.properties, server-390.properties, and all supporting configs available in the lab repository
 replica.fetch.max.bytes=500000
 num.partitions=10
 
@@ -310,55 +182,14 @@ log.retention.hours=24
 
 # Safety settings (IMPORTANT for migration)
 auto.leader.rebalance.enable=false
-unclean.leader.election.enable=false
-```
+**Key configuration points:**
+- `inter.broker.protocol.version=3.7` - Protocol compatibility during upgrade
+- `min.insync.replicas=2` - Ensures durability (2 of 3 replicas must acknowledge)
+- `auto.leader.rebalance.enable=false` - Prevents automatic rebalancing during upgrade
+- `unclean.leader.election.enable=false` - Prevents data loss
+- `default.replication.factor=3` - All topics replicated across all brokers
 
-**server-390.properties (Kafka 3.9.0 Phase 1 Config):**
-```properties
-# Kafka 3.9.0 Server Configuration (Upgrade Phase)
-# Use this config only after all brokers are running 3.9.0
-
-Listeners=PLAINTEXT://localhost:9092
-log.dirs=/kafka/logs
-broker.id=0
-
-# Replication settings
-min.insync.replicas=2
-default.replication.factor=3
-
-# ZooKeeper connection
-zookeeper.connect=localhost:2181
-zookeeper.session.timeout.ms=30000
-
-# Protocol version - keep at 3.7 during rolling upgrade
-# This ensures compatibility with 3.7.0 brokers still running
-inter.broker.protocol.version=3.7
-
-# Message settings
-message.max.bytes=500000
-replica.fetch.max.bytes=500000
-num.partitions=10
-
-# Performance settings
-compression.type=lz4
-num.network.threads=3
-
-# Retention
-log.retention.hours=24
-
-# Safety settings (IMPORTANT for migration)
-auto.leader.rebalance.enable=false
-unclean.leader.election.enable=false
-
-# Enable TRACE logging for debugging 
-log4j.logger.org.apache.kafka.metadata.migration=TRACE
-```
-
-**Key Configuration Differences:**
-- **`inter.broker.protocol.version=3.7`** - Critical for mixed-version compatibility
-- **`auto.leader.rebalance.enable=false`** - Prevents automatic rebalancing during upgrade
-- **`unclean.leader.election.enable=false`** - Prevents data loss
-- **`min.insync.replicas=2`** - Ensures durability (2 of 3 replicas must acknowledge)
+**📦 Get complete configuration files:** server-370.properties, server-390.properties, and all supporting configs available in the lab repository
 
 ---
 
@@ -1011,6 +842,68 @@ docker exec kafka1 journalctl -u kafka -n 50
 
 ## Conclusion
 Now go upgrade your Kafka clusters with confidence! 🚀
+
+---
+
+### Get the Full Lab Environment
+
+<div style="max-width: 450px; margin: 2rem auto; padding: 1.5rem; border: 2px solid #3b82f6; border-radius: 8px; background: #eff6ff;">
+
+<div id="kafkaFormContainer">
+<p style="margin-bottom: 1rem; font-weight: 600; text-align: center;">📧 Enter your email to access the complete Kafka lab setup</p>
+
+<form id="kafkaSourceCodeForm" action="https://formspree.io/f/xgowjqol" method="POST" style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <input type="email" name="email" placeholder="your.email@example.com" required 
+         style="padding: 0.75rem; border: 1px solid #cbd5e0; border-radius: 4px; font-size: 1rem;">
+  <input type="hidden" name="page" value="kafka-upgrade-lab">
+  <button type="submit" 
+          style="padding: 0.75rem; background: #3b82f6; color: white; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+    Get Lab Environment →
+  </button>
+</form>
+
+<p style="margin-top: 0.75rem; font-size: 0.875rem; color: #64748b; text-align: center;">
+Free • Docker setup • Complete scripts
+</p>
+</div>
+
+<div id="kafkaSuccessMessage" style="display: none; text-align: center;">
+<p style="font-size: 2rem; margin-bottom: 0.5rem;">✅</p>
+<p style="font-weight: 600; margin-bottom: 0.5rem;">Thanks! Access Granted</p>
+<p style="font-size: 0.875rem; color: #64748b;">The repository has been opened in a new tab.</p>
+<p style="margin-top: 1rem; font-size: 0.875rem; color: #64748b;">Don't forget to ⭐ star the repo!</p>
+</div>
+
+</div>
+
+<script>
+document.getElementById('kafkaSourceCodeForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const form = e.target;
+  const formData = new FormData(form);
+  
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      window.open('https://github.com/Saliha067/kafka-lab', '_blank');
+      document.getElementById('kafkaFormContainer').style.display = 'none';
+      document.getElementById('kafkaSuccessMessage').style.display = 'block';
+    } else {
+      alert('Submission failed. Please try again.');
+    }
+  }).catch(error => {
+    window.open('https://github.com/Saliha067/kafka-lab', '_blank');
+    document.getElementById('kafkaFormContainer').style.display = 'none';
+    document.getElementById('kafkaSuccessMessage').style.display = 'block';
+  });
+});
+</script>
 
 ---
 
