@@ -19,8 +19,6 @@ hideSummary: true
 showtoc: false
 ---
 
-## About
-
 Platform Engineering Manager building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
 
 ## What I Do
