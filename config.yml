@@ -46,6 +46,7 @@ params:
 
   ShowReadingTime: true
   ShowShareButtons: true
+  ShareButtons: ["x", "linkedin", "whatsapp", "reddit"]
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
@@ -170,6 +171,9 @@ menu:
       weight: 50
 pygmentsUseClasses: true
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     noClasses: false
     anchorLineNos: true
