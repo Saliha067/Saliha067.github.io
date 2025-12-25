@@ -4,6 +4,7 @@
 <style>
     .main {
         max-width: 960px !important;
+        padding: 0 20px; /* Add padding for mobile */
     }
     .post-content {
         max-width: 100% !important;
@@ -18,12 +19,37 @@
         padding: 20px;
         border-radius: 8px;
         border: 1px solid #e0e0e0;
+        overflow-x: auto; /* Allow horizontal scroll on small screens */
     }
     
     /* Dark mode adjustments */
     .dark .mermaid {
         background-color: #2d2d2d;
         border-color: #444;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .main {
+            max-width: 100% !important;
+            padding: 0 15px;
+        }
+        
+        .mermaid {
+            padding: 15px;
+            font-size: 12px;
+        }
+        
+        /* Make code blocks scrollable on mobile */
+        pre {
+            overflow-x: auto;
+        }
+        
+        /* Adjust images for mobile */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     }
 </style>
 
