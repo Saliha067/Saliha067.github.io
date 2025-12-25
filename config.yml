@@ -13,7 +13,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-# googleAnalytics: YOUR-GA-ID  # Uncomment and add your Google Analytics ID if needed
+googleAnalytics: G-J1C59DSSF4  # Uncomment and add your Google Analytics ID if needed
 minify:
   disableXML: true
   minifyOutput: true
