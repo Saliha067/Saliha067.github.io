@@ -21,7 +21,7 @@ showtoc: false
 
 ## About
 
-Platform Engineering Manager in building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
+Platform Engineering Manager building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
 
 ## What I Do
 
@@ -33,34 +33,6 @@ Leading distributed engineering teams across two time zones. Focused on talent d
 
 **Technical Leadership** ⚙️  
 Architecting cloud-native solutions using Kubernetes, Terraform and GitOps practices. Implementing robust observability, CI/CD pipelines and incident response frameworks for production systems.
-
-### Certifications 🏆
-
-- ☁️ **AWS Certified Solutions Architect – Associate**
-- ☸️ **Certified Kubernetes Administrator (CKA)**
-- 🎯 **Certified Kubernetes Application Developer (CKAD)**
-- 🏗️ **HashiCorp Terraform Certified**
-
-### Core Technologies & Skills 💻
-
-**Cloud & Infrastructure**  
-AWS, GCP, Kubernetes (KOPS, EKS), Terraform, Docker, ArgoCD
-
-**Observability & Ops**  
-Prometheus, Grafana, New Relic, Datadog, GitOps, CI/CD
-
-**Streaming & Data**  
-Kafka, OpenSearch, logstash and real-time data pipelines
-
-**Automation & Security**  
-Ansible, IaC and security best practices
-
-## Let's Connect 🤝
-
-Interested in platform engineering, cloud architecture, or building systems at scale?
-
-<!-- - **LinkedIn:** [linkedin.com/in/spf-in-action1](https://www.linkedin.com/in/spf-in-action1/) -->
-- **GitHub:** [github.com/Saliha067](https://github.com/Saliha067)
 
 ---
 

@@ -105,9 +105,9 @@ params:
   
   # ===== CUSTOMIZE: Social Media Links =====
   # Remove or add social icons as needed
-  socialIcons:
-    - name: github
-      url: "https://github.com/Saliha067"  # Your GitHub profile
+  # socialIcons:
+    # - name: github
+    #   url: "https://github.com/Saliha067"  # Your GitHub profile
     # - name: linkedin
       # url: "https://www.linkedin.com/in/spf-in-action1/"  # Your LinkedIn profile
     # - name: medium
