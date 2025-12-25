@@ -85,7 +85,7 @@ params:
     enabled: false # Set to true to enable profile mode
     title: spf-in-action  # Your name
     subtitle: >
-      Platform Engineering Manager in building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
+      Platform Engineering Manager building and scaling cloud infrastructure for 60M+ active users. Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
     imageUrl: "/images/profile.jpg"  # Add your profile image to static/images/
     imageWidth: 120
     imageHeight: 120
