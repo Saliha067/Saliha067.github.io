@@ -101,7 +101,7 @@ params:
     Title: "Hey there 👋 Welcome!"  # Greeting on homepage
     Content: |
       I build stuff that scales. Here's how, why, and what went wrong along the way.
-      &#13;&#10;
+      
       Feel free to explore my posts, projects, and get in touch!
       
   # ===== CUSTOMIZE: Social Media Links =====
