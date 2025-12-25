@@ -2,7 +2,7 @@
 # ===== CUSTOMIZE: Your Personal Info =====
 # ========================================
 # Update these values with your own information
-baseURL: https://Saliha067.github.io/  # Your GitHub Pages URL
+baseURL: https://blog.spf-in-action.co.in/  # Your custom domain
 languageCode: en-us
 title: spf-in-action  # Your blog title
 theme: 'PaperMod'
