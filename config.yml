@@ -100,7 +100,7 @@ params:
   homeInfoParams:
     Title: "Hey there 👋 Welcome!"  # Greeting on homepage
     Content: |
-      Platform Engineering Manager in building and scaling cloud infrastructure for 60M+ active users.
+      Platform Engineering Manager building and scaling cloud infrastructure for 60M+ active users.
       &#13;&#10;
       Specialized in leading distributed engineering teams and architecting resilient systems that balance performance, cost and reliability.
   
