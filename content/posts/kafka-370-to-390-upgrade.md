@@ -8,7 +8,7 @@ TocOpen: false
 ShowShareButtons: true
 sharingButtons: ["x", "linkedin", "whatsapp", "reddit"]
 summary: "A comprehensive guide to upgrading a 3-node Kafka cluster from version 3.7.0 to 3.9.0 using a two-phase rolling upgrade strategy, with step-by-step commands and real terminal outputs"
-tags: ["kafka", "platform-engineering", "cloud", "devops"]
+tags: ["kafka", "platform team" , "docker", "kafka upgrade"]
 categories: ["blog"]
 cover:
   image: ""
