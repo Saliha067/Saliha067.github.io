@@ -1,0 +1,16 @@
+# Code Owners for Saliha067.github.io
+# These owners will be automatically requested for review when someone opens a pull request
+
+# Default owner for everything in the repo
+* @Saliha067
+
+# Blog posts - require your review
+/content/posts/ @Saliha067
+
+# Configuration files - require your review
+/config.yml @Saliha067
+/my-blog/config.yml @Saliha067
+
+# Theme customizations
+/layouts/ @Saliha067
+/static/ @Saliha067
