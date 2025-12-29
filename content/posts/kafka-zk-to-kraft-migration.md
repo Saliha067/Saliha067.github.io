@@ -107,22 +107,20 @@ Our migration transforms the cluster architecture from ZooKeeper-based coordinat
 ### Before Migration: ZooKeeper Mode
 
 {{< mermaid >}}
-graph TB
-    subgraph ZooKeeper["ZooKeeper Ensemble"]
-        ZK1[ZooKeeper 1]
-        ZK2[ZooKeeper 2]
-        ZK3[ZooKeeper 3]
-    end
-    
+graph LR
     subgraph Kafka["Kafka Cluster"]
         K1[Kafka Broker 1<br/>3.9.0]
         K2[Kafka Broker 2<br/>3.9.0]
         K3[Kafka Broker 3<br/>3.9.0]
     end
     
-    K1 --> ZK1
-    K2 --> ZK2
-    K3 --> ZK3
+    subgraph ZooKeeper["ZooKeeper Ensemble"]
+        ZK1[ZooKeeper 1]
+        ZK2[ZooKeeper 2]
+        ZK3[ZooKeeper 3]
+    end
+    
+    Kafka --> ZooKeeper
     
     style ZK1 fill:#ffd700
     style ZK2 fill:#ffd700
@@ -130,8 +128,8 @@ graph TB
 {{< /mermaid >}}
 
 **Current state:**
-- 3 ZooKeeper nodes managing cluster metadata
-- 3 Kafka brokers (version 3.9.0) dependent on ZooKeeper
+- 3 ZooKeeper nodes forming an ensemble with quorum-based consensus
+- 3 Kafka brokers (version 3.9.0) connecting to the ZooKeeper ensemble
 - All coordination, leader elections, and configuration stored in ZooKeeper
 
 ### After Migration: KRaft Mode
