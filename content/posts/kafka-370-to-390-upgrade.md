@@ -891,14 +891,14 @@ document.getElementById('kafkaSourceCodeForm').addEventListener('submit', functi
     }
   }).then(response => {
     if (response.ok) {
-      window.open('https://github.com/Saliha067/kafka-lab', '_blank');
+      window.open('https://github.com/Saliha067/kafka-lab/tree/master/kafka3.7.0', '_blank');
       document.getElementById('kafkaFormContainer').style.display = 'none';
       document.getElementById('kafkaSuccessMessage').style.display = 'block';
     } else {
       alert('Submission failed. Please try again.');
     }
   }).catch(error => {
-    window.open('https://github.com/Saliha067/kafka-lab', '_blank');
+    window.open('https://github.com/Saliha067/kafka-lab/tree/master/kafka3.7.0', '_blank');
     document.getElementById('kafkaFormContainer').style.display = 'none';
     document.getElementById('kafkaSuccessMessage').style.display = 'block';
   });
