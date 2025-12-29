@@ -841,7 +841,10 @@ docker exec kafka1 journalctl -u kafka -n 50
 ---
 
 ## Conclusion
+
 Now go upgrade your Kafka clusters with confidence! 🚀
+
+**Next step:** Ready to eliminate ZooKeeper entirely? Check out the [Kafka ZooKeeper to KRaft Migration Guide](https://blog.spf-in-action.co.in/posts/kafka-zk-to-kraft-migration/) to migrate your upgraded 3.9.0 cluster to KRaft mode.
 
 ---
 
